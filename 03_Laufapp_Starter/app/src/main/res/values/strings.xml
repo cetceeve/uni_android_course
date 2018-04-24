@@ -9,6 +9,8 @@
     <string name="text_button_calculator">Pace und Kalorienverbrauch berechnen:</string>
     <string name="text_pace">Durchschnittliche Geschwindigkeit (Pace):</string>
     <string name="text_calories">Verbracuhte Kalorien:</string>
+    <string name="text_pace_default">O pro km:</string>
+    <string name="text_calories_default">O kCal:</string>
 
 
 </resources>
