@@ -1,11 +1,11 @@
 package ur.mi.android.laufapp_starter_projekt;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-public class Results extends Activity {
+public class Results extends AppCompatActivity {
     TextView textViewPace;
     TextView textViewCals;
     Calculator calculator;
@@ -14,6 +14,7 @@ public class Results extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         textViewPace = (TextView) findViewById(R.id.textview_pace);
         textViewCals = (TextView) findViewById(R.id.textview_cals);
