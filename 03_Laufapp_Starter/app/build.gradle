@@ -1,24 +1,25 @@
 apply plugin: 'com.android.application'
 
 android {
-   compileSdkVersion 25
-   buildToolsVersion '27.0.3'
+    compileSdkVersion 25
+    buildToolsVersion '27.0.3'
 
-   defaultConfig {
-      applicationId "ur.mi.android.laufapp_starter_projekt"
-      minSdkVersion 16
-      targetSdkVersion 25
-   }
+    defaultConfig {
+        applicationId "ur.mi.android.laufapp_starter_projekt"
+        minSdkVersion 16
+        targetSdkVersion 25
+    }
 
-   buildTypes {
-      release {
-         minifyEnabled false
-         proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
-      }
-   }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
 }
 
 dependencies {
-   compile 'com.android.support:support-v4:25.3.1'
-   compile 'com.android.support:appcompat-v7:25.3.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.android.support:appcompat-v7:25.3.1'
 }

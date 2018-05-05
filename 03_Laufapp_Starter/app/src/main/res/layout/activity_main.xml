@@ -43,28 +43,6 @@
         android:layout_height="wrap_content"
         android:text="@string/text_button_calculator"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/text_pace"/>
-
-    <TextView
-        android:id="@+id/textview_pace"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/text_pace_default"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/text_calories"/>
-
-    <TextView
-        android:id="@+id/textview_cals"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/text_calories_default"/>
-
 
 </LinearLayout>
 
