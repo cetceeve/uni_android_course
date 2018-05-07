@@ -1,4 +1,4 @@
-package de.ur.mi.android.excercises.starter;
+package de.ur.mi.android.excercises.todo;
 
 import android.app.Activity;
 import android.os.Bundle;
