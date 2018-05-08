@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">Todo</string>
+    <string name="app_name">Telefonbuch</string>
+    <string name="create_friend">Create Friend</string>
+    <string name="friend_name_input">Name:</string>
+    <string name="friend_name_input_hint">Max Mustermann</string>
+    <string name="input_phonenumber">Phonenumber:</string>
+    <string name="input_phonenumber_hint">12345678</string>
+    <string name="button_find_friend">Find Friend</string>
+    <string name="output_search_name">Name</string>
+    <string name="output_name">Name:</string>
+    <string name="output_hint_name">Max Mustermann</string>
+    <string name="output_phonenumber">Phonenumber:</string>
+    <string name="output_hint_phonenumber">12345678</string>
 </resources>
