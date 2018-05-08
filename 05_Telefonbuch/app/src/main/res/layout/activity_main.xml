@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/button_create_friend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create Friend"/>
+
+    <TextView
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name:"
+        android:textSize="18sp"/>
+
+    <EditText
+        android:id="@+id/textbox_input_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="Max Mustermann"/>
+
+    <TextView
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phonenumber:"
+        android:textSize="18sp"/>
+
+    <EditText
+        android:id="@+id/textbox_input_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="12345678"/>
+
+    <Button
+        android:id="@+id/button_find_friend"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Find Friend"/>
+
+    <EditText
+        android:id="@+id/textbox_output_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="Name"/>
+
+    <TextView
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name:"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/textview_output_name"
+        android:paddingLeft="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Max Mustermann"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phonenumber:"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/textview_output_number"
+        android:paddingLeft="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="12345678"
+        android:textSize="18sp"/>
+
+</LinearLayout>
