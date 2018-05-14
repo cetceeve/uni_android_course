@@ -3,6 +3,7 @@ package com.example.fzeih.todo_app;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         tasks = new ArrayList<>();
         textBox = findViewById(R.id.textbox);
         Button add_button = findViewById(R.id.add_button);
-        listView = findViewById(R.id.list_view);
+        listView = (ListView) findViewById(R.id.list_view);
 
         arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, tasks);
         listView.setAdapter(arrayAdapter);
@@ -34,15 +35,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 tasks.add(textBox.getText().toString());
                 arrayAdapter.notifyDataSetChanged();
+                textBox.setText("");
             }
         });
 
-        listView.setOnLongClickListener(new View.OnLongClickListener() {
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public boolean onLongClick(View view) {
-                tasks.remove(listView.getPositionForView(view));
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                tasks.remove(position);
                 arrayAdapter.notifyDataSetChanged();
-                return true;
+                return false;
             }
         });
     }
