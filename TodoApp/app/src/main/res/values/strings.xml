@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Todo-App</string>
+    <string name="button_add">Add</string>
+    <string name="textview_current_tasks">Current Tasks</string>
+    <string name="textbox_hint_new_task">New Task</string>
+</resources>
