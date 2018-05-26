@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tabelle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="@android:color/background_dark">
+
+    <TextView
+        android:id="@+id/rank"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        android:paddingRight="5dp"
+        android:textColor="@android:color/white"
+        android:text="@string/platz" />
+
+    <TextView
+        android:id="@+id/team"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:paddingRight="5dp"
+        android:text="@string/team" />
+
+    <TextView
+        android:id="@+id/played_games"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:paddingRight="5dp"
+        android:text="@string/spiele" />
+
+    <TextView
+        android:id="@+id/points"
+        android:layout_width="35dp"
+        android:textColor="@android:color/white"
+        android:layout_height="wrap_content"
+        android:paddingRight="5dp"
+        android:text="@string/punkte" />
+
+    <TextView
+        android:id="@+id/goals"
+        android:textColor="@android:color/white"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:text="@string/tore" />
+
+</LinearLayout>
