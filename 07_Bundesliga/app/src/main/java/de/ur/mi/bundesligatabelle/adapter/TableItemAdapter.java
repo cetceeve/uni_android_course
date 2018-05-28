@@ -39,9 +39,34 @@ public class TableItemAdapter extends ArrayAdapter<TableItem> {
         TextView goalDifference = (TextView) v.findViewById(R.id.goals);
 
         //set data here
+        TableItem tableItem = table.get(position);
+        rank.setText(Integer.toString(tableItem.getRank()));
+        team.setText(tableItem.getName());
+        playedGames.setText(Integer.toString(tableItem.getPlayedGames()));
+        points.setText(Integer.toString(tableItem.getPoints()));
 
+        String goalDifferenceString = Integer.toString(tableItem.getGoals()) + ":" + Integer.toString(tableItem.getGoalsAgainst());
+        goalDifference.setText(goalDifferenceString);
+
+        v.setBackgroundColor(context.getResources().getColor(colorResolver(position)));
 
         return v;
+    }
+
+    private int colorResolver(int pos) {
+        if (pos < 3) {
+            return android.R.color.holo_green_dark;
+        }
+        if (pos < 6) {
+            return android.R.color.holo_green_light;
+        }
+        if (pos < 15) {
+            return android.R.color.darker_gray;
+        }
+        if (pos == 15) {
+            return android.R.color.holo_red_light;
+        }
+        return android.R.color.holo_red_dark;
     }
 
 }
