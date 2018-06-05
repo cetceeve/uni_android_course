@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.content.FileProvider;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -48,6 +49,7 @@ public class MainActivity extends Activity {
          Button takeImageButton = (Button) findViewById(R.id.button_takeImage);
          takeImageButton.setVisibility(View.GONE);
       }
+       mCropImageView = (CropImageView) findViewById(R.id.cropImageView);
       // Get the intent that started this activity
       Intent intent = getIntent();
       if (intent != null) {
@@ -106,7 +108,13 @@ public class MainActivity extends Activity {
                e.printStackTrace();
            }
            if (photoFile != null) {
-               takeImageIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoFile));
+               Uri uri = null;
+               try {
+                   uri = FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID, createImageFile());
+               } catch (IOException e) {
+                   e.printStackTrace();
+               }
+               takeImageIntent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
                startActivityForResult(takeImageIntent, REQUEST_IMAGE_CAPTURE);
            }
        }
@@ -151,7 +159,10 @@ public class MainActivity extends Activity {
        if (resultCode == RESULT_OK) {
            if (requestCode == REQUEST_IMAGE_CAPTURE) {
                galleryAddPic();
-               mCropImageView.setImageBitmap(loadBitmap(Uri.parse(mCurrentPhotoPath)));
+               Bitmap bm = loadBitmap(Uri.parse(mCurrentPhotoPath));
+               if (bm != null) {
+                   mCropImageView.setImageBitmap(bm);
+               }
                if (data != null) {
                    Bundle bitmapData = data.getBundleExtra("data");
                    Bitmap bitmap = (Bitmap) bitmapData.get("data");
