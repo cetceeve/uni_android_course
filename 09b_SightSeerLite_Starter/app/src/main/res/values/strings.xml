@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SightSeer Lite</string>
+
+    <string name="navigation_info_placeholder">-</string>
+    <string name="navigation_signal_info_searching">Searching for GPS-Signal</string>
+    <string name="navigation_signal_info_connected">GPS is working</string>
+
+</resources>
