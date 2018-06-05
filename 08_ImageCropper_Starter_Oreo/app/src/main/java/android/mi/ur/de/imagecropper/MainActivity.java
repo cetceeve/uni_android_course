@@ -52,7 +52,32 @@ public class MainActivity extends Activity {
       Intent intent = getIntent();
       if (intent != null) {
          // TODO Check intent type, set variables and load image to mCropImageView
+         Uri data = intent.getData();
+
+         try {
+             if (intent.getType().contains("image/*")) {
+                 if (data != null) {
+                     mCurrentPhotoPath = data.toString();
+                     Bitmap bitmap = loadBitmap(data);
+                     if (bitmap != null) {
+                         mCropImageView.setImageBitmap(bitmap);
+                     }
+                 }
+             }
+         } catch (NullPointerException e) {
+             e.printStackTrace();
+         }
       }
+   }
+
+   private Bitmap loadBitmap(Uri uri) {
+       InputStream inputStream = null;
+       try {
+           inputStream = getContentResolver().openInputStream(uri);
+       } catch (FileNotFoundException e) {
+           e.printStackTrace();
+       }
+       return BitmapFactory.decodeStream(inputStream);
    }
 
 
@@ -72,6 +97,20 @@ public class MainActivity extends Activity {
     */
    public void takeImage(View view) {
       // TODO Use the devices camera app to take a photo
+       Intent takeImageIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+       if (takeImageIntent.resolveActivity(getPackageManager()) != null) {
+           File photoFile = null;
+           try {
+               photoFile = createImageFile();
+           } catch (IOException e) {
+               e.printStackTrace();
+           }
+           if (photoFile != null) {
+               takeImageIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoFile));
+               startActivityForResult(takeImageIntent, REQUEST_IMAGE_CAPTURE);
+           }
+       }
+
    }
 
    private File createImageFile() throws IOException {
@@ -109,6 +148,28 @@ public class MainActivity extends Activity {
    @Override
    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
       // TODO check requests (either image from camera or gallery), load the image to
+       if (resultCode == RESULT_OK) {
+           if (requestCode == REQUEST_IMAGE_CAPTURE) {
+               galleryAddPic();
+               mCropImageView.setImageBitmap(loadBitmap(Uri.parse(mCurrentPhotoPath)));
+               if (data != null) {
+                   Bundle bitmapData = data.getBundleExtra("data");
+                   Bitmap bitmap = (Bitmap) bitmapData.get("data");
+                   if (bitmap != null) {
+                       mCropImageView.setImageBitmap(bitmap);
+                   }
+               }
+           }
+           if (requestCode == REQUEST_IMAGE_FROM_GALLERY) {
+               if (data != null) {
+                   Uri uri = data.getData();
+                   Bitmap bitmap = loadBitmap(uri);
+                   if (bitmap != null) {
+                       mCropImageView.setImageBitmap(bitmap);
+                   }
+               }
+           }
+       }
    }
 
    /**
@@ -116,6 +177,9 @@ public class MainActivity extends Activity {
     */
    public void chooseImageFromGallery(View view) {
       // TODO let the user choose an image from the gallery
+       Intent chooseImageFromGalleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
+       chooseImageFromGalleryIntent.setType("image/*");
+       startActivityForResult(chooseImageFromGalleryIntent, REQUEST_IMAGE_FROM_GALLERY);
    }
 
    /**
