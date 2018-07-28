@@ -37,6 +37,8 @@ captures/
 */.idea/workspace.xml
 */.idea/tasks.xml
 */.idea/gradle.xml
+*/.idea/misc.xml
+*/.idea/vcs.xml
 */.idea/assetWizardSettings.xml
 */.idea/dictionaries
 */.idea/libraries
@@ -63,6 +65,3 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 fastlane/readme.md
-
-#the annoying one
-*/.idea/misc.xml
